@@ -1,4 +1,4 @@
-1. El fichero gcd.rb contiene una implementación en Ruby del máximo común divisor. 
+2.1. El fichero gcd.rb contiene una implementación en Ruby del máximo común divisor. 
 Haciendo uso del depurador de ruby detecte el error en el código.
 
 Invocamos al depurador de ruby y se ha listado las líneas del programa:
@@ -12,7 +12,7 @@ gcd.rb:1:def gcd(u, v)
    4      u, v = v, u % v
    5    end
 
-El error viene en la línea 3, ponemos un breakpoint en la línea 3:
+2.2 El error viene en la línea 3, ponemos un breakpoint en la línea 3:
 
 (rdb:1) b 3
 Set breakpoint 1 at gcd.rb:3
@@ -54,3 +54,5 @@ gcd.rb:6:  u
    9  puts gcd(6,3)
 
 Para solventar el error deberemos cambiar la línea 4 y poner v != 0.
+
+2.3 https://github.com/alu0100592368/prct05
