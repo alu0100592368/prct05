@@ -12,6 +12,45 @@ gcd.rb:1:def gcd(u, v)
    4      u, v = v, u % v
    5    end
 
-El error viene en la línea 3, al poner un breakpoint (b 3) se observa que no se evalúa la
-condición dado que no se cumple nunca que v == 0, para solventar el error deberemos cambiar
-y poner v != 0.
+El error viene en la línea 3, ponemos un breakpoint en la línea 3:
+
+(rdb:1) b 3
+Set breakpoint 1 at gcd.rb:3
+
+A continuación seguimos depurando paso a paso con s(tep):
+
+-2, 7] in gcd.rb
+   1  def gcd(u, v)
+   2    u, v = u.abs, v.abs
+=> 3    while v == 0
+   4      u, v = v, u % v
+   5    end
+   6    u
+   7  end
+
+Al llegar a la línea 3 se observa que no se evalúa la condición dado que no se cumple 
+nunca que v == 0 y salta a la línea 6 directamente:
+
+[-2, 7] in gcd.rb
+   1  def gcd(u, v)
+   2    u, v = u.abs, v.abs
+=> 3    while v == 0
+   4      u, v = v, u % v
+   5    end
+   6    u
+   7  end
+(rdb:1) s
+gcd.rb:6:  u
+(rdb:1) l
+[1, 10] in gcd.rb
+   1  def gcd(u, v)
+   2    u, v = u.abs, v.abs
+   3    while v == 0
+   4      u, v = v, u % v
+   5    end
+=> 6    u
+   7  end
+   8  
+   9  puts gcd(6,3)
+
+Para solventar el error deberemos cambiar la línea 4 y poner v != 0.
