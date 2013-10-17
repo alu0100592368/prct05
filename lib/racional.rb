@@ -1,5 +1,4 @@
 # Clase para crear objetos racionales
-
 require "./lib/gcd.rb"
 require "./lib/lcm.rb"
 
@@ -23,6 +22,36 @@ class Fraccion
   def to_s
     "#{@a}/#{@b}"
   end
+  
+  # Dado un número c/d, devuelve dicho número reducido en fracción irreducible
+  def irreducible(c, d)
+    x = mcd(c,d)
+    c = c / x
+    d = d / x
+    return c, d
+  end
+  
+  # Devuelve un nuevo racional que suma al objeto que invoca el que le pasan como parámetro
+  def suma(*args)
+    if args.size == 2
+      x, y = irreducible(args[0],args[1])
+    else
+      x = args[0]
+      y = 1
+    end
+
+    if (@b == y) # Igual denominador
+      @a += x
+    else         # Distinto denominador
+      den = mcm(@b,y)
+      num = ((den / @b) * @a) + ((den / y) * x)
+      @a = num
+      @b = den
+    end
+
+    return @a, @b
+  end
+
   
   
 end
