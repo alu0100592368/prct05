@@ -9,7 +9,7 @@ class Fraccion
   # Si recibe 1 es el numerador con denominador 1.
   def initialize(*args)
     if args.size == 2    
-      x = mcd(args[0],args[1])
+      x = gcd(args[0],args[1])
       @a = args[0] / x
       @b = args[1] / x
     else
@@ -25,7 +25,7 @@ class Fraccion
   
   # Dado un número c/d, devuelve dicho número reducido en fracción irreducible
   def irreducible(c, d)
-    x = mcd(c,d)
+    x = gcd(c,d)
     c = c / x
     d = d / x
     return c, d
@@ -34,7 +34,7 @@ class Fraccion
   # Devuelve un nuevo racional que suma al objeto que invoca el que le pasan como parámetro
   def suma(*args)
     if args.size == 2
-      x, y = irreducible(args[0],args[1])
+      x, y = irreducible(args[0],args[1])  # Número expresado en fracción irreducible
     else
       x = args[0]
       y = 1
@@ -43,7 +43,7 @@ class Fraccion
     if (@b == y) # Igual denominador
       @a += x
     else         # Distinto denominador
-      den = mcm(@b,y)
+      den = lcm(@b,y)
       num = ((den / @b) * @a) + ((den / y) * x)
       @a = num
       @b = den
@@ -52,7 +52,27 @@ class Fraccion
     return @a, @b
   end
 
-  
+  # Devuelve un nuevo racional que resta al objeto que invoca el que le pasan como parámetro
+  def resta(*args)
+    if args.size == 2
+      x, y = operandoMin(args[0],args[1]) # Número expresado en fracción irreducible
+    else
+      x = args[0]
+      y = 1
+    end
 
+    if (@b == y) # Igual denominador
+      @a -= x
+    else         # Distinto denominador
+      den = lcm(@b,y)
+      num = ((den / @b) * @a) - ((den / y) * x)
+      @a = num
+      @b = den
+    end
+
+    return @a, @b
+  end
+  
+  
   
 end
