@@ -103,8 +103,8 @@ class Fraccion
       y = 1
     end
 
-    @a = @a / y
-    @b = @b / x
+    @a = @a * y
+    @b = @b * x
 
     return @a, @b
   end
