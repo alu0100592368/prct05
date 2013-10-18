@@ -3,5 +3,5 @@
 def lcm(u, v)
   u, v = u.abs, v.abs
   
-  (u / mcd(u,v)) * v 
+  (u / gcd(u,v)) * v 
 end
