@@ -76,7 +76,7 @@ class Fraccion
   # Devuelve un nuevo racional que multiplica al objeto que invoca el que le pasan como parámetro
   def producto(*args)
     if args.size == 2 
-      x, y = irreducible(args[0],args[1])
+      x, y = irreducible(args[0],args[1]) # Número expresado en fracción irreducible
     else
       x = args[0]
       y = 1
@@ -88,5 +88,17 @@ class Fraccion
     return @a, @b
   end
 
-  
+  def division(*args)
+    if args.size == 2 
+      x, y = irreducible(args[0],args[1]) # Número expresado en fracción irreducible
+    else
+      x = args[0]
+      y = 1
+    end
+
+    @a = @a / y
+    @b = @b / x
+
+    return @a, @b
+  end
 end
