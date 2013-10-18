@@ -53,6 +53,6 @@ gcd.rb:6:  u
    8  
    9  puts gcd(6,3)
 
-Para solventar el error deberemos cambiar la línea 4 y poner v != 0.
+Para solventar el error deberemos cambiar la línea 3 y poner while v != 0.
 
 2.3 https://github.com/alu0100592368/prct05
