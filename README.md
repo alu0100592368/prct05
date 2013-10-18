@@ -22,7 +22,7 @@ Instrucciones
 Notas
 -----
 La carpeta PruebasUnitarias es la carpeta clonada para seguir las instrucciones que se indicaban en el fichero 'README.md'.
-También se incluye el fichero respuestas_depurador.txt que contiene las respuestas a las preguntas sobre el depurador.
+También se incluye el fichero 'respuestas_depurador.txt' que contiene las respuestas a las preguntas sobre el depurador.
 
 ---
 
