@@ -5,4 +5,3 @@ def lcm(u, v)
   
   (u / mcd(u,v)) * v 
 end
-  
