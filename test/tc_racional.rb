@@ -3,6 +3,14 @@ require "./lib/racional.rb"
 require "test/unit"
 
 class Test_Fraccion < Test::Unit::TestCase
+
+  # Tests para el método to_s
+  def test_to_s
+    assert_equal("2/1", Fraccion.new(2).to_s)       
+    assert_equal("3/5", Fraccion.new(3,5).to_s) 
+    assert_equal("5/2", Fraccion.new(5,2).to_s)  
+    assert_equal("3/1", Fraccion.new(15,5).to_s)
+  end   
   
   # Tests para el método suma
   def test_suma
@@ -26,6 +34,14 @@ class Test_Fraccion < Test::Unit::TestCase
     assert_equal([3, 10], Fraccion.new(3,5).producto(1,2))  # (3/5) * (1/2) = (3/10)
     assert_equal([5, 6], Fraccion.new(5,2).producto(2,6))   # (5/2) * (2/6) = (5/6)
     assert_equal([3, 1], Fraccion.new(15,5).producto(5,5))  # (15/5) * (5/5) = (3)
+  end
+
+  # Tests para el método división
+  def test_division
+    assert_equal([2, 3], Fraccion.new(2).division(3))       # (2) / (3) = (2/3)
+    assert_equal([6, 5], Fraccion.new(3,5).division(1,2))   # (3/5) / (1/2) = (6/5)
+    assert_equal([15, 2], Fraccion.new(5,2).division(2,6))  # (5/2) / (2/6) = (15/2)
+    assert_equal([3, 1], Fraccion.new(15,5).division(5,5))  # (15/5) / (5/5) = (3)
   end
 
 end
