@@ -17,12 +17,14 @@ class Fraccion
       @b = 1
     end
   end
+  
 
   # Devuelve una cadena con la representación del racional
   def to_s
     "#{@a}/#{@b}"
   end
   
+
   # Dado un número c/d, devuelve dicho número reducido en fracción irreducible
   def irreducible(c, d)
     x = gcd(c,d)
@@ -31,6 +33,7 @@ class Fraccion
     return c, d
   end
   
+
   # Devuelve un nuevo racional que suma al objeto que invoca el que le pasan como parámetro
   def suma(*args)
     if args.size == 2
@@ -51,6 +54,7 @@ class Fraccion
 
     return @a, @b
   end
+  
 
   # Devuelve un nuevo racional que resta al objeto que invoca el que le pasan como parámetro
   def resta(*args)
@@ -73,6 +77,7 @@ class Fraccion
     return @a, @b
   end
   
+
   # Devuelve un nuevo racional que multiplica al objeto que invoca el que le pasan como parámetro
   def producto(*args)
     if args.size == 2 
@@ -87,7 +92,9 @@ class Fraccion
 
     return @a, @b
   end
+  
 
+  # Devuelve un nuevo racional que divide al objeto que invoca el que le pasan como parámetro
   def division(*args)
     if args.size == 2 
       x, y = irreducible(args[0],args[1]) # Número expresado en fracción irreducible
